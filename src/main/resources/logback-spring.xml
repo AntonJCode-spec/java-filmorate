@@ -11,7 +11,7 @@
 
     <appender name="file" class="ch.qos.logback.core.FileAppender">
         <file>logs/myapp.log</file>
-        <append>true</append>
+        <append>false</append>
         <encoder>
             <charset>UTF-8</charset>
             <pattern>

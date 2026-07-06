@@ -1,7 +1,12 @@
 package ru.yandex.practicum.filmorate.controller;
 
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import ru.yandex.practicum.filmorate.exception.NotFoundException;
 import ru.yandex.practicum.filmorate.exception.ValidationException;
 import ru.yandex.practicum.filmorate.model.Film;
@@ -30,16 +35,16 @@ public class FilmController {
             throw new ValidationException("Название фильма должно быть указано");
         }
         validateFilm(film);
-        log.info("Валидация прошла успешно");
+        log.trace("Валидация прошла успешно");
         film.setId(getNextId());
-        log.debug("Установлен ID {}", film.getId() );
+        log.debug("Установлен ID {}", film.getId());
         films.put(film.getId(), film);
-        log.info("Фильм с ID \"{}\" добавлен в базу", film.getId());
+        log.info("Добавленный фильм: [{}]", film);
         return film;
     }
 
     @PutMapping
-    public Film uppdateFilm(@RequestBody Film film) {
+    public Film updateFilm(@RequestBody Film film) {
         if (film.getId() == null) {
             log.warn("Ошибка валидации ID. ID не был передан в запросе");
             throw new ValidationException("ID должен быть указан");
@@ -51,7 +56,7 @@ public class FilmController {
 
         Film newFilm = films.get(film.getId());
         updateFields(newFilm, film);
-        log.info("Значения полуй фильма с ID \"{}\" успешно обновлены", newFilm.getId());
+        log.info("Значения фильма с ID \"{}\" успешно обновлены", newFilm.getId());
         return newFilm;
     }
 
