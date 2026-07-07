@@ -21,6 +21,9 @@ class FilmorateApplicationTests {
 
     private static final String BASE = "http://localhost:8080";
     private static HttpClient client;
+    private static final int OK = 200;
+    private static final int INTERNAL_SERVER_ERROR = 500;
+    private static final int BAD_REQUEST = 400;
 
     @Autowired
     private ObjectMapper objectMapper;
@@ -44,7 +47,7 @@ class FilmorateApplicationTests {
                 .build();
 
         HttpResponse<String> response = client.send(req, HttpResponse.BodyHandlers.ofString(StandardCharsets.UTF_8));
-        Assertions.assertEquals(400, response.statusCode());
+        Assertions.assertEquals(BAD_REQUEST, response.statusCode());
     }
 
     @Test
@@ -63,7 +66,7 @@ class FilmorateApplicationTests {
                 .build();
 
         HttpResponse<String> response = client.send(req, HttpResponse.BodyHandlers.ofString(StandardCharsets.UTF_8));
-        Assertions.assertEquals(200, response.statusCode());
+        Assertions.assertEquals(OK, response.statusCode());
     }
 
     @Test
@@ -82,7 +85,7 @@ class FilmorateApplicationTests {
                 .build();
 
         HttpResponse<String> response = client.send(req, HttpResponse.BodyHandlers.ofString(StandardCharsets.UTF_8));
-        Assertions.assertEquals(500, response.statusCode());
+        Assertions.assertEquals(INTERNAL_SERVER_ERROR, response.statusCode());
     }
 
     @Test
@@ -103,7 +106,7 @@ class FilmorateApplicationTests {
                 .build();
 
         HttpResponse<String> response = client.send(req, HttpResponse.BodyHandlers.ofString(StandardCharsets.UTF_8));
-        Assertions.assertEquals(500, response.statusCode());
+        Assertions.assertEquals(INTERNAL_SERVER_ERROR, response.statusCode());
     }
 
     @Test
@@ -124,7 +127,7 @@ class FilmorateApplicationTests {
                 .build();
 
         HttpResponse<String> response = client.send(req, HttpResponse.BodyHandlers.ofString(StandardCharsets.UTF_8));
-        Assertions.assertEquals(200, response.statusCode());
+        Assertions.assertEquals(OK, response.statusCode());
     }
 
     @Test
@@ -144,7 +147,7 @@ class FilmorateApplicationTests {
                 .build();
 
         HttpResponse<String> response = client.send(req, HttpResponse.BodyHandlers.ofString(StandardCharsets.UTF_8));
-        Assertions.assertEquals(500, response.statusCode());
+        Assertions.assertEquals(INTERNAL_SERVER_ERROR, response.statusCode());
     }
 
     @Test
@@ -164,7 +167,7 @@ class FilmorateApplicationTests {
                 .build();
 
         HttpResponse<String> response = client.send(req, HttpResponse.BodyHandlers.ofString(StandardCharsets.UTF_8));
-        Assertions.assertEquals(200, response.statusCode());
+        Assertions.assertEquals(OK, response.statusCode());
     }
 
     @Test
@@ -184,7 +187,7 @@ class FilmorateApplicationTests {
                 .build();
 
         HttpResponse<String> response = client.send(req, HttpResponse.BodyHandlers.ofString(StandardCharsets.UTF_8));
-        Assertions.assertEquals(500, response.statusCode());
+        Assertions.assertEquals(INTERNAL_SERVER_ERROR, response.statusCode());
     }
 
     @Test
@@ -204,7 +207,7 @@ class FilmorateApplicationTests {
                 .build();
 
         HttpResponse<String> response = client.send(req, HttpResponse.BodyHandlers.ofString(StandardCharsets.UTF_8));
-        Assertions.assertEquals(500, response.statusCode());
+        Assertions.assertEquals(INTERNAL_SERVER_ERROR, response.statusCode());
     }
 
     @Test
@@ -221,7 +224,7 @@ class FilmorateApplicationTests {
                 .PUT(HttpRequest.BodyPublishers.ofString(json))
                 .build();
         HttpResponse<String> response = client.send(req, HttpResponse.BodyHandlers.ofString(StandardCharsets.UTF_8));
-        Assertions.assertEquals(500, response.statusCode());
+        Assertions.assertEquals(INTERNAL_SERVER_ERROR, response.statusCode());
     }
 
     @Test
@@ -247,7 +250,7 @@ class FilmorateApplicationTests {
                 .PUT(HttpRequest.BodyPublishers.ofString(json))
                 .build();
         HttpResponse<String> response = client.send(req, HttpResponse.BodyHandlers.ofString(StandardCharsets.UTF_8));
-        Assertions.assertEquals(200, response.statusCode());
+        Assertions.assertEquals(OK, response.statusCode());
     }
 
     @Test
@@ -273,7 +276,7 @@ class FilmorateApplicationTests {
                 .PUT(HttpRequest.BodyPublishers.ofString(json))
                 .build();
         HttpResponse<String> response = client.send(req, HttpResponse.BodyHandlers.ofString(StandardCharsets.UTF_8));
-        Assertions.assertEquals(500, response.statusCode());
+        Assertions.assertEquals(INTERNAL_SERVER_ERROR, response.statusCode());
     }
 
     @Test
@@ -291,7 +294,7 @@ class FilmorateApplicationTests {
                 .POST(HttpRequest.BodyPublishers.ofString(json))
                 .build();
         HttpResponse<String> response = client.send(req, HttpResponse.BodyHandlers.ofString(StandardCharsets.UTF_8));
-        Assertions.assertEquals(200, response.statusCode());
+        Assertions.assertEquals(OK, response.statusCode());
     }
 
     @Test
@@ -307,7 +310,7 @@ class FilmorateApplicationTests {
                 .POST(HttpRequest.BodyPublishers.ofString(json))
                 .build();
         HttpResponse<String> response = client.send(req, HttpResponse.BodyHandlers.ofString(StandardCharsets.UTF_8));
-        Assertions.assertEquals(500, response.statusCode());
+        Assertions.assertEquals(INTERNAL_SERVER_ERROR, response.statusCode());
     }
 
     @Test
@@ -324,7 +327,7 @@ class FilmorateApplicationTests {
                 .POST(HttpRequest.BodyPublishers.ofString(json))
                 .build();
         HttpResponse<String> response = client.send(req, HttpResponse.BodyHandlers.ofString(StandardCharsets.UTF_8));
-        Assertions.assertEquals(500, response.statusCode());
+        Assertions.assertEquals(INTERNAL_SERVER_ERROR, response.statusCode());
     }
 
     @Test
@@ -340,7 +343,7 @@ class FilmorateApplicationTests {
                 .POST(HttpRequest.BodyPublishers.ofString(json))
                 .build();
         HttpResponse<String> response = client.send(req, HttpResponse.BodyHandlers.ofString(StandardCharsets.UTF_8));
-        Assertions.assertEquals(500, response.statusCode());
+        Assertions.assertEquals(INTERNAL_SERVER_ERROR, response.statusCode());
     }
 
     @Test
@@ -358,7 +361,7 @@ class FilmorateApplicationTests {
                 .POST(HttpRequest.BodyPublishers.ofString(json))
                 .build();
         HttpResponse<String> response = client.send(req, HttpResponse.BodyHandlers.ofString(StandardCharsets.UTF_8));
-        Assertions.assertEquals(500, response.statusCode());
+        Assertions.assertEquals(INTERNAL_SERVER_ERROR, response.statusCode());
     }
 
     @Test
@@ -386,7 +389,7 @@ class FilmorateApplicationTests {
                 .PUT(HttpRequest.BodyPublishers.ofString(json))
                 .build();
         HttpResponse<String> response = client.send(req, HttpResponse.BodyHandlers.ofString(StandardCharsets.UTF_8));
-        Assertions.assertEquals(200, response.statusCode());
+        Assertions.assertEquals(OK, response.statusCode());
     }
 
     @Test
@@ -414,7 +417,7 @@ class FilmorateApplicationTests {
                 .PUT(HttpRequest.BodyPublishers.ofString(json))
                 .build();
         HttpResponse<String> response = client.send(req, HttpResponse.BodyHandlers.ofString(StandardCharsets.UTF_8));
-        Assertions.assertEquals(500, response.statusCode());
+        Assertions.assertEquals(INTERNAL_SERVER_ERROR, response.statusCode());
     }
 
     @Test
@@ -441,7 +444,7 @@ class FilmorateApplicationTests {
                 .PUT(HttpRequest.BodyPublishers.ofString(json))
                 .build();
         HttpResponse<String> response = client.send(req, HttpResponse.BodyHandlers.ofString(StandardCharsets.UTF_8));
-        Assertions.assertEquals(500, response.statusCode());
+        Assertions.assertEquals(INTERNAL_SERVER_ERROR, response.statusCode());
     }
 
 
