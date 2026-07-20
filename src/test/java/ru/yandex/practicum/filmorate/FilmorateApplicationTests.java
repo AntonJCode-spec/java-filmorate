@@ -433,19 +433,19 @@ class FilmorateApplicationTests {
     }
 
     @Test
-    void LikeFilmShouldReturn200IfRequestCorrect() throws Exception {
+    void likeFilmShouldReturn200IfRequestCorrect() throws Exception {
         HttpResponse<String> resp = testClient.putFilms("/" + 1 + "/like/" + 1);
         Assertions.assertEquals(OK, resp.statusCode());
     }
 
     @Test
-    void LikeFilmShouldReturn404IfFilmIdNotExist() throws Exception {
+    void likeFilmShouldReturn404IfFilmIdNotExist() throws Exception {
         HttpResponse<String> resp = testClient.putFilms("/" + 100 + "/like/" + 1);
         Assertions.assertEquals(NOT_FOUND, resp.statusCode());
     }
 
     @Test
-    void LikeFilmShouldReturn404IfUserIdNotExist() throws Exception {
+    void likeFilmShouldReturn404IfUserIdNotExist() throws Exception {
         HttpResponse<String> resp = testClient.putFilms("/" + 3 + "/like/" + 100);
         Assertions.assertEquals(NOT_FOUND, resp.statusCode());
     }
