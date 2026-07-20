@@ -18,7 +18,7 @@ import java.nio.charset.StandardCharsets;
 public class TestClient {
 
     private final HttpClient client = HttpClient.newHttpClient();
-    private final String BASE_URL = "http://localhost:8080";
+    private static final String BASE_URL = "http://localhost:8080";
 
     @Autowired
     private final ObjectMapper objectMapper;
