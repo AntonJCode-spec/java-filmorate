@@ -1,5 +1,6 @@
 package ru.yandex.practicum.filmorate;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -7,20 +8,13 @@ import ru.yandex.practicum.filmorate.storage.*;
 
 @RestController
 @RequestMapping("/test")
+@RequiredArgsConstructor
 public class TestController {
 
-    private final InMemoryFilmStorage filmStorage;
-    private final InMemoryUserStorage userStorage;
-    private final InMemoryFriendStorage friendStorage;
-    private final InMemoryFilmLikeStorage likeStorage;
-
-    public TestController(InMemoryFilmStorage filmStorage, InMemoryUserStorage userStorage,
-                          InMemoryFriendStorage friendStorage, InMemoryFilmLikeStorage likeStorage) {
-        this.filmStorage = filmStorage;
-        this.userStorage = userStorage;
-        this.friendStorage = friendStorage;
-        this.likeStorage = likeStorage;
-    }
+    private final FilmStorage filmStorage;
+    private final UserStorage userStorage;
+    private final FriendStorage friendStorage;
+    private final FilmLikeStorage likeStorage;
 
     @DeleteMapping("/clear")
     public void clearAll() {
