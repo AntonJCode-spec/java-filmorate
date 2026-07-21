@@ -115,4 +115,13 @@ public class TestClient {
                 .build();
         return client.send(request, HttpResponse.BodyHandlers.ofString(StandardCharsets.UTF_8));
     }
+
+    public HttpResponse<String> clearStorageForTest(String path) throws Exception {
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create(BASE_URL + "/test" + path))
+                .header("Content-Type", "application/json")
+                .DELETE()
+                .build();
+        return client.send(request, HttpResponse.BodyHandlers.ofString(StandardCharsets.UTF_8));
+    }
 }

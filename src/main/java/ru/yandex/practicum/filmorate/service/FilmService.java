@@ -82,11 +82,6 @@ public class FilmService {
                 .toList();
     }
 
-    public void clear() {
-        filmStorage.clear();
-        filmLikeStorage.clear();
-    }
-
     private void validateUser(Long userId) {
         if (!userStorage.isUserExist(userId)) {
             log.debug("Пользователя с id {} не существует", userId);

@@ -67,14 +67,11 @@ class FilmorateApplicationTests {
 
     @BeforeEach
     void beforeEach() throws Exception {
-        testClient.deleteUser("/clear");
-        testClient.deleteFilms("/clear");
+        testClient.clearStorageForTest("/clear");
         for (int i = 0; i < 10; i++) {
             testClient.postUsers(userList.get(i));
             testClient.postFilms(filmList.get(i));
         }
-
-
     }
 
     @Test

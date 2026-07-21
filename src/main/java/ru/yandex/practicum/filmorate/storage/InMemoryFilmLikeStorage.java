@@ -12,7 +12,7 @@ import java.util.HashSet;
 @Slf4j
 @Component
 public class InMemoryFilmLikeStorage implements FilmLikeStorage {
-    Map<Long, Set<Long>> likeStorage = new HashMap<>();
+    private final Map<Long, Set<Long>> likeStorage = new HashMap<>();
 
     @Override
     public void addLike(Long filmId, Long userId) {

@@ -92,11 +92,6 @@ public class UserService {
                 .toList();
     }
 
-    public void clear() {
-        userStorage.clear();
-        friendStorage.clear();
-    }
-
     private void validateUser(Long userId) {
         if (!userStorage.isUserExist(userId)) {
             log.debug("Пользователя с id {} не существует", userId);
